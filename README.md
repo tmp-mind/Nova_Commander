@@ -4,3 +4,5 @@ télécharger et décompresser le modèle vosk ( vosk-model-fr-0.22 ) dans le m�
 lancer le script avec la commande : python3 NovaNav_webcam_modulaire.py
 
 le script a besoin d'une webcam et d'un micro pour fonctionner : lien du tuto et utilisation du script nova_commander : https://youtu.be/JRSw3fqL2iI
+
+ne fonctionne que avec ubuntu 22.04 avec cette méthode , probalement possible de le faire fonctionner avec d'autre système linux mais j'ai pas essayer
