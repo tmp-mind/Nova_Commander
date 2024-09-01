@@ -1,3 +1,5 @@
+Ce script permet d'utiliser son ordinateur avec la voix et des mouvement de tête, probablement utile pour ceux qui n'ont plus une très motricité au niveau des bras.
+
 Lancer la commande dans le fichier apt_commande.txt ( juste copié coller )
 installer les truk nécessaire avec "pip install -r requirements.txt"
 télécharger et décompresser le modèle vosk ( vosk-model-fr-0.22 ) dans le même dossier que le script ( https://alphacephei.com/vosk/models )
