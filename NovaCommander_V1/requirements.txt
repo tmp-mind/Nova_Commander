@@ -1,0 +1,10 @@
+opencv-python
+mediapipe
+numpy
+pyautogui
+sounddevice
+vosk
+pyaudio
+pillow
+tts
+xdotool

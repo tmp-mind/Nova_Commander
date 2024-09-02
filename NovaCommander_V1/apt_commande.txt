@@ -1,0 +1,2 @@
+sudo apt-get install xdotool gnome-screensaver xbacklight alsa-utils portaudio19-dev espeak espeak-ng ffmpeg
+

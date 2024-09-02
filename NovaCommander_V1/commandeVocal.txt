@@ -1,0 +1,150 @@
+COMMANDS avec le mots clé nova = {
+    "ouvre le navigateur"
+    "ouvre youtube"
+    "cherche sur youtube"
+    "cherche sur google":
+    "sélectionne vidéo"
+    "active le module d'écriture"
+    "active le module du curseur"
+    "active le module système"
+    "curseur stop":
+    "lire la vidéo":
+    "pause la vidéo":
+    "reprendre la vidéo":
+    "retour accueil youtube"
+    "ferme firefox"
+    "onglet un",
+    "onglet deux"
+    "onglet trois"
+    "onglet quatre"
+    "onglet cinq"
+    "onglet six"
+    "onglet sept"
+    "onglet huit"
+    "ouvre onglet"
+    "ferme onglet"
+    "cherche sur la page"
+    "valide la commande"
+    "actualiser la page"
+    "cible le mot"
+}
+
+# Commandes spécifiques pour le mode écriture et numpad
+COMMANDS = {
+    "efface le mot"
+    "efface deux mots"
+    "efface trois mots"
+    "efface quatre mots"
+    "efface cinq mots",
+    "efface la lettre"
+    "efface deux lettres"
+    "efface trois lettres"
+    "efface quatre lettres"
+    "efface cinq lettres"
+    "appuyez sur entrée"
+    "écrire" ( la commande écrire tout ce qui es dit après le mots écrire )
+    "espace"
+    "ferme le module d'écriture"
+    "sélectionne tout"
+    "passe en mode numérique"
+    "passe en mode écriture normale"
+    "insérez deux points"
+    "point" 
+    "virgule"
+    "arobase"
+    "ouvrir parenthèse"
+    "ouvrir guillemet"
+    "ouvrir accolade"
+    "ouvrir crochet"
+}
+
+# Commandes spécifiques pour le contrôle du système d'exploitation
+COMMANDS = {
+    "lance": "launch_application",
+    "ferme l'application": "close_application",
+    "change de fenêtre": "switch_window",
+    "ferme la fenêtre": "close_window",
+    "ouvre le dossier": "open_folder",
+    "ouvre les téléchargement": "open_downloads_folder",
+    "crée un dossier": "create_folder",
+    "supprime le fichier": "delete_file",
+    "augmente le volume": "increase_volume",
+    "baisse le volume": "decrease_volume",
+    "augmente la luminosité": "increase_brightness",
+    "baisse la luminosité": "decrease_brightness",
+    "verrouille l'ordinateur": "lock_computer",
+    "éteins l'ordinateur": "shutdown_computer",
+    "redémarre l'ordinateur": "restart_computer",
+    "ouvre les paramètres réseau": "open_network_settings",
+    "ouvre les paramètres d'affichage": "open_display_settings",
+    "ferme le module système": "close_system_module"
+}
+
+
+
+# Commandes possibles sans avoir besoin de dire le mot-clé "nova" lors du déplacement du curseur
+COMMANDS = {
+    "clic gauche": "mouse_click_left",
+    "clic droit": "mouse_click_right",
+    "molette haut": "scroll_up",
+    "molette bas": "scroll_down"
+}
+
+
+# Commandes spécifiques pour le contrôle du jeu wakfu
+COMMANDS = {
+    "clic gauche": "mouse_click_left",
+    "maintenir le clic": "mouse_hold_left",
+    "relâche le clic ": "mouse_release_left",
+    "clic droit": "mouse_click_right",
+    "double clic": "double_click",
+    "molette haut": "scroll_up",
+    "molette bas": "scroll_down",
+    "flèche haut": "press_arrow_up",
+    "flèche bas": "press_arrow_down",
+    "flèche gauche": "press_arrow_left",
+    "flèche droite": "press_arrow_right",
+    "lance le combat": "start_fight",
+    "attaque un": "attack_one",
+    "attaque deux": "attack_two",
+    "attaque trois": "attack_three",
+    "attaque quatre": "attack_four",
+    "attaque cinq": "attack_five",
+    "attaque six": "attack_six",
+    "attaque sept": "attack_seven",
+    "attaque huit": "attack_eight",
+    "attaque neuf": "attack_nine",
+    "attaque dix": "attack_ten",
+    "attaque onze": "attack_eleven",
+    "attaque douze": "attack_twelve",
+    "attaque treize": "attack_thirteen",
+    "attaque quatorze": "attack_fourteen",
+    "attaque quinze": "attack_fifteen",
+    "attaque seize": "attack_sixteen",
+    "attaque dix sept": "attack_seventeen",
+    "attaque dix huit": "attack_eighteen",
+    "ouvre l'inventaire": "open_inventory",
+    "ferme l'inventaire": "open_inventory",
+    "curseur au centre": "move_cursor_center",
+    "curseur à droite": "move_cursor_right",
+    "curseur à gauche": "move_cursor_left",
+    "curseur en haut": "move_cursor_up",
+    "curseur en bas": "move_cursor_down",
+    "ouvrir le sac": "toggle_haven_bag",
+    "fermez le sac": "toggle_haven_bag",
+    "ouvre les aptitudes": "open_aptitudes",
+    "ferme les aptitudes": "open_aptitudes",
+    "ouvre les sorts": "open_spells",
+    "ferme les sorts": "open_spells",
+    "ouvre les héros": "open_heroes",
+    "ferme les héros": "open_heroes",
+    "ouvre les métiers": "open_professions",
+    "ferme les métiers": "open_professions",
+    "ouvre la carte": "open_map",
+    "ferme la carte": "open_map",
+    "ouvre le menu": "open_menu",
+    "ferme le menu": "open_menu",
+    "ouvre la page des builds": "open_build_manager",
+    "ferme la page des builds": "open_build_manager",
+    "envoyer le message": "send_message",
+}
