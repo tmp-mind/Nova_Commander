@@ -12,3 +12,4 @@ Il faut lancer la sessions sur xorg pour que le script fonctionne !
 
 02/09/2024 :
 ajout du module wakfu pour jouer au jeu wakfu de ankama
+  -pour que le module fonctionne il faut changer les raccourie du jeu par les numéro du numpad , pareil pour la barre d'action 2 shift + numéro du numpad
