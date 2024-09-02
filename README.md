@@ -9,3 +9,6 @@ le script a besoin d'une webcam et d'un micro pour fonctionner : lien du tuto et
 
 ne fonctionne que avec ubuntu 22.04 avec cette méthode , probalement possible de le faire fonctionner avec d'autre système linux mais j'ai pas essayer
 Il faut lancer la sessions sur xorg pour que le script fonctionne !
+
+02/09/2024 :
+ajout du module wakfu pour jouer au jeu wakfu de ankama
