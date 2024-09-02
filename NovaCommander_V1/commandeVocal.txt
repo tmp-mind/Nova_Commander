@@ -7,6 +7,7 @@ COMMANDS avec le mots clé nova = {
     "active le module d'écriture"
     "active le module du curseur"
     "active le module système"
+    "active le module wakfu"
     "curseur stop":
     "lire la vidéo":
     "pause la vidéo":
