@@ -19,3 +19,4 @@ ajout du module wakfu pour jouer au jeu wakfu de ankama
   ajout de la version windows ( les module fonctionne pareil )
   pour utiliser le module wakfu , il faut changer les options de la barre rapide ( 1 ) avec les numéro du numpad.
   certaine commande vocal sont différente lors que l'activation du module curseur ( pour que le module sois plus rapide j'ai mis le model small de vosk )
+  lien du tuto pour windows : https://youtu.be/HUmczO2MG3c
