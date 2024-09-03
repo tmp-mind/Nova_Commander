@@ -13,3 +13,9 @@ Il faut lancer la sessions sur xorg pour que le script fonctionne !
 02/09/2024 :
 ajout du module wakfu pour jouer au jeu wakfu de ankama
   -pour que le module fonctionne il faut changer les raccourie du jeu par les numéro du numpad , pareil pour la barre d'action 2 shift + numéro du numpad
+
+
+03/09/2024 :
+  ajout de la version windows ( les module fonctionne pareil )
+  pour utiliser le module wakfu , il faut changer les options de la barre rapide ( 1 ) avec les numéro du numpad.
+  certaine commande vocal sont différente lors que l'activation du module curseur ( pour que le module sois plus rapide j'ai mis le model small de vosk )
