@@ -8,21 +8,19 @@ import sys
 import threading
 import pyautogui
 import ctypes
-from ctypes import wintypes
 
 # Chemin vers le modèle Vosk
 MODEL_PATH = "vosk-model-fr-0.22"
 
 # Commandes spécifiques pour le contrôle du système d'exploitation
 COMMANDS = {
-    "lance": "launch_application",
-    "ferme l'application": "close_application",
-    "change de fenêtre": "switch_window",
-    "ferme la fenêtre": "close_window",
-    "ouvre le dossier": "open_folder",
+    "ouvre les documents": "open_documents",
+    "ouvre les musique": "open_music",
+    "ouvre les images": "open_pictures",
+    "ouvre le bureau": "open_desktop",
+    "ouvre les vidéos": "open_videos",
     "ouvre les téléchargements": "open_downloads_folder",
     "crée un dossier": "create_folder",
-    "supprime le fichier": "delete_file",
     "augmente le volume": "increase_volume",
     "baisse le volume": "decrease_volume",
     "augmente la luminosité": "increase_brightness",
@@ -30,8 +28,8 @@ COMMANDS = {
     "verrouille l'ordinateur": "lock_computer",
     "éteins l'ordinateur": "shutdown_computer",
     "redémarre l'ordinateur": "restart_computer",
-    "ouvre les paramètres réseau": "open_network_settings",
-    "ouvre les paramètres d'affichage": "open_display_settings",
+    "ferme la fenêtre": "close_window",
+    "change de fenêtre": "switch_window",
     "ferme le module système": "close_system_module"
 }
 
@@ -52,139 +50,130 @@ def callback(indata, frames, time, status):
         print(status, file=sys.stderr)
     audio_queue.put(bytes(indata))
 
-# Fonction pour lancer une application
-def launch_application(command_text):
-    app_name = command_text.replace("lance", "").strip()
-    print(f"Lancement de l'application {app_name}...")
-    subprocess.Popen([app_name])
+# Fonctions pour ouvrir les dossiers standards
 
-# Fonction pour fermer une application
-def close_application(command_text):
-    app_name = command_text.replace("ferme l'application", "").strip()
-    print(f"Fermeture de {app_name}...")
-    subprocess.run(["taskkill", "/IM", f"{app_name}.exe", "/F"])
-
-# Fonction pour changer de fenêtre
-def switch_window(command_text):
-    window_name = command_text.replace("change de fenêtre", "").strip()
-    if window_name:
-        print(f"Changement de fenêtre vers {window_name}...")
-        pyautogui.hotkey('alt', 'tab')
-    else:
-        print("Changement de fenêtre active...")
-        pyautogui.hotkey('alt', 'tab')
-
-# Fonction pour fermer la fenêtre active
-def close_window(command_text=None):
-    print("Fermeture de la fenêtre active...")
-    pyautogui.hotkey('alt', 'f4')
-
-# Fonction pour ouvrir un dossier
-def open_folder(command_text):
+def open_documents(command_text=None):
+    """Ouvre le dossier Documents"""
     user_home = os.path.expanduser("~")
-    folder_name = command_text.replace("ouvre le dossier", "").strip().lower()
-    folder_path = os.path.join(user_home, folder_name.capitalize())
+    documents_path = os.path.join(user_home, "Documents")
+    print("Ouverture du dossier Documents...")
+    subprocess.Popen(["explorer", documents_path])
 
-    if os.path.exists(folder_path):
-        print(f"Ouverture du dossier {folder_name}...")
-        subprocess.Popen(["explorer", folder_path])
-    else:
-        print(f"Le dossier {folder_name} n'existe pas.")
+def open_music(command_text=None):
+    """Ouvre le dossier Musique"""
+    user_home = os.path.expanduser("~")
+    music_path = os.path.join(user_home, "Music")
+    print("Ouverture du dossier Musique...")
+    subprocess.Popen(["explorer", music_path])
 
-# Fonction dédiée pour ouvrir le dossier Téléchargements
+def open_pictures(command_text=None):
+    """Ouvre le dossier Images"""
+    user_home = os.path.expanduser("~")
+    pictures_path = os.path.join(user_home, "Pictures")
+    print("Ouverture du dossier Images...")
+    subprocess.Popen(["explorer", pictures_path])
+
+def open_desktop(command_text=None):
+    """Ouvre le dossier Bureau"""
+    user_home = os.path.expanduser("~")
+    desktop_path = os.path.join(user_home, "Desktop")
+    print("Ouverture du dossier Bureau...")
+    subprocess.Popen(["explorer", desktop_path])
+
+def open_videos(command_text=None):
+    """Ouvre le dossier Vidéos"""
+    user_home = os.path.expanduser("~")
+    videos_path = os.path.join(user_home, "Videos")
+    print("Ouverture du dossier Vidéos...")
+    subprocess.Popen(["explorer", videos_path])
+
 def open_downloads_folder(command_text=None):
+    """Ouvre le dossier Téléchargements"""
     user_home = os.path.expanduser("~")
-    downloads_folder_path = os.path.join(user_home, "Downloads")
+    downloads_path = os.path.join(user_home, "Downloads")
+    print("Ouverture du dossier Téléchargements...")
+    subprocess.Popen(["explorer", downloads_path])
 
-    if os.path.exists(downloads_folder_path):
-        print("Ouverture du dossier Téléchargements...")
-        subprocess.Popen(["explorer", downloads_folder_path])
-    else:
-        print("Le dossier Téléchargements n'existe pas.")
-
-# Fonction pour créer un dossier
+# Fonction pour créer un dossier dans Documents
 def create_folder(command_text):
-    user_home = os.path.expanduser("~")
+    """Crée un nouveau dossier dans le dossier Documents"""
+    user_documents = os.path.join(os.path.expanduser("~"), "Documents")
     folder_name = command_text.replace("crée un dossier", "").strip()
-    folder_path = os.path.join(user_home, folder_name.capitalize())
+    folder_path = os.path.join(user_documents, folder_name.capitalize())
 
     if not os.path.exists(folder_path):
-        print(f"Création du dossier {folder_name}...")
+        print(f"Création du dossier {folder_name} dans Documents...")
         os.makedirs(folder_path)
     else:
-        print(f"Le dossier {folder_name} existe déjà.")
-
-# Fonction pour supprimer un fichier ou dossier
-def delete_file(command_text):
-    user_home = os.path.expanduser("~")
-    file_name = command_text.replace("supprime le fichier", "").strip()
-    file_path = os.path.join(user_home, file_name)
-
-    if os.path.exists(file_path):
-        print(f"Suppression du fichier/dossier {file_name}...")
-        if os.path.isdir(file_path):
-            os.rmdir(file_path)
-        else:
-            os.remove(file_path)
-    else:
-        print(f"Le fichier/dossier {file_name} n'existe pas.")
+        print(f"Le dossier {folder_name} existe déjà dans Documents.")
 
 # Fonction pour augmenter le volume
 def increase_volume(command_text=None):
+    """Augmente le volume sonore du système"""
     print("Augmentation du volume...")
-    for _ in range(10):  # Augmente le volume de 10%
+    for _ in range(10):
         pyautogui.press("volumeup")
 
 # Fonction pour diminuer le volume
 def decrease_volume(command_text=None):
+    """Diminue le volume sonore du système"""
     print("Diminution du volume...")
-    for _ in range(10):  # Diminue le volume de 10%
+    for _ in range(10):
         pyautogui.press("volumedown")
 
 # Fonction pour augmenter la luminosité
 def increase_brightness(command_text=None):
+    """Augmente la luminosité de l'écran"""
     print("Augmentation de la luminosité...")
-    for _ in range(10):  # Augmente la luminosité de 10%
-        pyautogui.hotkey('fn', 'f3')  # Adjust this if your keyboard uses a different key
+    for _ in range(10):
+        pyautogui.hotkey('fn', 'f3')
 
 # Fonction pour diminuer la luminosité
 def decrease_brightness(command_text=None):
+    """Diminue la luminosité de l'écran"""
     print("Diminution de la luminosité...")
-    for _ in range(10):  # Diminue la luminosité de 10%
-        pyautogui.hotkey('fn', 'f2')  # Adjust this if your keyboard uses a different key
+    for _ in range(10):
+        pyautogui.hotkey('fn', 'f2')
 
 # Fonction pour verrouiller l'ordinateur
 def lock_computer(command_text=None):
+    """Verrouille l'ordinateur"""
     print("Verrouillage de l'ordinateur...")
     ctypes.windll.user32.LockWorkStation()
 
 # Fonction pour éteindre l'ordinateur
 def shutdown_computer(command_text=None):
+    """Éteint l'ordinateur"""
     print("Extinction de l'ordinateur...")
     subprocess.run(["shutdown", "/s", "/t", "0"])
 
 # Fonction pour redémarrer l'ordinateur
 def restart_computer(command_text=None):
+    """Redémarre l'ordinateur"""
     print("Redémarrage de l'ordinateur...")
     subprocess.run(["shutdown", "/r", "/t", "0"])
 
-# Fonction pour ouvrir les paramètres réseau
-def open_network_settings(command_text=None):
-    print("Ouverture des paramètres réseau...")
-    subprocess.Popen(["start", "ms-settings:network"], shell=True)
+# Fonction pour fermer la fenêtre active
+def close_window(command_text=None):
+    """Ferme la fenêtre active"""
+    print("Fermeture de la fenêtre active...")
+    pyautogui.hotkey('alt', 'f4')
 
-# Fonction pour ouvrir les paramètres d'affichage
-def open_display_settings(command_text=None):
-    print("Ouverture des paramètres d'affichage...")
-    subprocess.Popen(["start", "ms-settings:display"], shell=True)
+# Fonction pour changer de fenêtre
+def switch_window(command_text=None):
+    """Change de fenêtre en utilisant Alt + Tab"""
+    print("Changement de fenêtre...")
+    pyautogui.hotkey('alt', 'tab')
 
 # Fonction pour fermer le module système
 def close_system_module(command_text=None):
+    """Ferme le module de contrôle système"""
     print("Fermeture du module système...")
     os._exit(0)
 
 # Fonction pour écouter les commandes vocales
 def listen_for_commands():
+    """Écoute les commandes vocales et les exécute"""
     print("En mode contrôle système...")
     with sd.RawInputStream(samplerate=16000, blocksize=8000, dtype='int16', channels=1, callback=callback):
         while True:
