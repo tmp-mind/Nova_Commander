@@ -1,0 +1,6 @@
+https://visualstudio.microsoft.com/visual-cpp-build-tools/
+
+ne pas oublier de cocher le windows 10 sdk et windows 11 sdk
+
+installer aussi :
+https://github.com/espeak-ng/espeak-ng/releases
